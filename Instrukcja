@@ -1,0 +1,64 @@
+### PoolTable Reservation API
+### Kacper Piłat & Patryk Lichoń
+
+#### PoolTable Reservation Core (Domain Layer)
+**Zawiera:**
+
+- **Encje (Entities):** Podstawowe modele biznesowe reprezentujące dane domeny.
+  - `Core/Entity/Payment.cs`: Definicja encji Payment.
+  - `Core/Entity/PoolTable.cs`: Definicja encji PoolTable.
+  - `Core/Entity/Reservation.cs`: Definicja encji Reservation.
+  - `Core/Entity/UserEntity.cs`: Definicja encji UserEntity.
+  - `Core/Entity/UserRole.cs`: Definicja encji UserRole.
+
+- **Interfejsy domenowe (Interfaces):** Interfejsy, które definiują kontrakty dla repozytoriów i innych serwisów domenowych.
+  - `Core/Interfaces/IPaymentRepository.cs`: Interfejs repozytorium IPaymentRepository.
+  - `Core/Interfaces/IPoolTableRepository.cs`: Interfejs repozytorium IPoolTableRepository.
+  - `Core/Interfaces/IReservationRepository.cs`: Interfejs repozytorium IReservationRepository.
+  - `Core/Interfaces/IUserRepository.cs`: Interfejs repozytorium IUserRepository.
+
+#### PoolTable Reservation Application (Use Cases)
+**Zawiera:**
+
+- **DTOs (Data Transfer Objects):** Obiekty przenoszące dane między warstwami.
+  - `Application/DTOs/PaymentDto.cs`: Definicja DTO PaymentDto.
+  - `Application/DTOs/PoolTableDto.cs`: Definicja DTO PoolTableDto.
+  - `Application/DTOs/ReservationDto.cs`: Definicja DTO ReservationDto.
+  - `Application/DTOs/UserDto.cs`: Definicja DTO UserDto.
+
+- **Interfejsy usług aplikacyjnych (Interfaces):** Interfejsy definiujące kontrakty dla usług aplikacyjnych.
+  - `Application/Interfaces/IPaymentService.cs`: Interfejs serwisu IPaymentService.
+  - `Application/Interfaces/IPoolTableService.cs`: Interfejs serwisu IPoolTableService.
+  - `Application/Interfaces/IReservationService.cs`: Interfejs serwisu IReservationService.
+  - `Application/Interfaces/IUserService.cs`: Interfejs serwisu IUserService.
+
+- **Implementacje usług aplikacyjnych (Services):** Klasy implementujące logikę biznesową, wykorzystujące repozytoria z warstwy Core.
+  - `Application/Services/PaymentService.cs`: Implementacja serwisu PaymentService.
+  - `Application/Services/PoolTableService.cs`: Implementacja serwisu PoolTableService.
+  - `Application/Services/ReservationService.cs`: Implementacja serwisu ReservationService.
+  - `Application/Services/UserService.cs`: Implementacja serwisu UserService.
+
+#### PoolTable Reservation Infrastructure (Data Access, Frameworks)
+**Zawiera:**
+
+- **Kontekst bazy danych (Data):** Klasy kontekstowe dla Entity Framework lub innych ORM.
+  - `Infrastructure/Data/TaskDbContext.cs`: Definicja kontekstu bazy danych TaskDbContext.
+
+- **Implementacje repozytoriów (Data):** Klasy implementujące interfejsy repozytoriów z warstwy Core.
+  - `Infrastructure/Repositories/PaymentRepository.cs`: Implementacja repozytorium PaymentRepository.
+  - `Infrastructure/Repositories/PoolTableRepository.cs`: Implementacja repozytorium PoolTableRepository.
+  - `Infrastructure/Repositories/ReservationRepository.cs`: Implementacja repozytorium ReservationRepository.
+  - `Infrastructure/Repositories/UserRepository.cs`: Implementacja repozytorium UserRepository.
+
+#### PoolTable Reservation API (Presentation Layer)
+**Zawiera:**
+
+- **Kontrolery (Controllers):** Klasy kontrolerów obsługujące żądania HTTP i komunikację z warstwą Application.
+  - `WebApi/Controllers/AuthenticationController.cs`: Kontroler obsługujący uwierzytelnianie użytkowników.
+  - `WebApi/Controllers/PaymentsController.cs`: Kontroler obsługujący operacje na płatnościach.
+  - `WebApi/Controllers/PoolTablesController.cs`: Kontroler obsługujący operacje na stołach bilardowych.
+  - `WebApi/Controllers/ReservationsController.cs`: Kontroler obsługujący operacje na rezerwacjach.
+
+- **Konfiguracja (Configuration):** Ustawienia aplikacji i konfiguracja DI.
+  - `WebApi/Program.cs`: Główny punkt wejścia aplikacji konfigurujący DI i uruchamiający aplikację.
+
