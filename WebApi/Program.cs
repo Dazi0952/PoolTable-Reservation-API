@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using System;
 using Infrastructure.Data;
 using System.Security.Cryptography;
-using WebApi.JwtHelper;
 
 var builder = WebApplication.CreateBuilder(args);
 
